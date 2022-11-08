@@ -60,13 +60,13 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) // 2. Add Two Numbers
 }
 
 int firstBadVersion(int n) // 278. First Bad Version
-{
+{ 
     int st = 1;
     int end = n;
-    while (st <= n)
+    while (st <= end)
     {
         int mid = st + (end - st) / 2;
-        if (/*isBadVersion(mid) == */false)
+        if (/*isBadVersion(mid) == */ false)
         {
             st = mid + 1;
         }
@@ -75,6 +75,32 @@ int firstBadVersion(int n) // 278. First Bad Version
             end = mid - 1;
         }
     }
+    return st;
+}
+
+int mySqrt(int x) // 69. Sqrt(x)
+{ 
+    int i = 0;
+    int j = x;
+    int ans;
+    while (i <= j)
+    {
+        long long int mid = i + (j - i) / 2;
+        if (mid * mid == x)
+        {
+            ans = mid;
+            break;
+        }
+        else if (mid * mid < x)
+        {
+            i = mid + 1;
+        }
+        else
+        {
+            j = mid - 1;
+        }
+    }
+    return ans;
 }
 
 int main()
