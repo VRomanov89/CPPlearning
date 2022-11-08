@@ -2,15 +2,23 @@
 #include <unordered_map>
 using namespace std;
 
+struct ListNode // 2. Add Two Numbers
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 // create a class
 class Solutions
 {
 
 public:
-    int romanToInt(string s); //13. Roman to Integer
+    int romanToInt(string s); // 13. Roman to Integer
 };
 
-int Solutions::romanToInt(string s) //13. Roman to Integer
+int Solutions::romanToInt(string s) // 13. Roman to Integer
 {
     unordered_map<char, int> mp{
         {'I', 1},
@@ -32,8 +40,27 @@ int Solutions::romanToInt(string s) //13. Roman to Integer
     return ans;
 }
 
+ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) // 2. Add Two Numbers
+{
+    ListNode *myList = new ListNode(0);
+    ListNode *current = myList;
+    int carry = 0;
+    while (l1 != NULL || l2 != NULL || carry != 0)
+    {
+        int x = l1 ? l1->val : 0;
+        int y = l2 ? l2->val : 0;
+        int sum = carry + x + y;
+        carry = sum / 10;
+        current->next = new ListNode(sum % 10);
+        current = current->next;
+        l1 = l1 ? l1->next : nullptr;
+        l2 = l2 ? l2->next : nullptr;
+    }
+    return myList->next;
+}
+
 int main()
 {
     Solutions sol;
-    cout <<sol.romanToInt("XXX");
+    cout << sol.romanToInt("XXX");
 }
