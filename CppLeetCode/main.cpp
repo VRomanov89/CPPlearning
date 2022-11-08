@@ -59,6 +59,24 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) // 2. Add Two Numbers
     return myList->next;
 }
 
+int firstBadVersion(int n) // 278. First Bad Version
+{
+    int st = 1;
+    int end = n;
+    while (st <= n)
+    {
+        int mid = st + (end - st) / 2;
+        if (/*isBadVersion(mid) == */false)
+        {
+            st = mid + 1;
+        }
+        else
+        {
+            end = mid - 1;
+        }
+    }
+}
+
 int main()
 {
     Solutions sol;
