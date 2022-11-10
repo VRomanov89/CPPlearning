@@ -2,6 +2,24 @@
 #include <unordered_map>
 using namespace std;
 
+// ------>>> Linked List Implementation
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node()
+    {
+        data = 0;
+        next = NULL;
+    }
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+
 struct ListNode // 2. Add Two Numbers
 {
     int val;
@@ -60,7 +78,7 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) // 2. Add Two Numbers
 }
 
 int firstBadVersion(int n) // 278. First Bad Version
-{ 
+{
     int st = 1;
     int end = n;
     while (st <= end)
@@ -79,7 +97,7 @@ int firstBadVersion(int n) // 278. First Bad Version
 }
 
 int mySqrt(int x) // 69. Sqrt(x)
-{ 
+{
     int i = 0;
     int j = x;
     int ans;
