@@ -2,23 +2,115 @@
 #include <unordered_map>
 using namespace std;
 
-// ------>>> Linked List Implementation
+// START ------>>> Linked List Implementation
 class Node
 {
 public:
-    int data;
-    Node *next;
-    Node()
+    int data;   // The contents of the node.
+    Node *next; // The pointer to the next node.
+    Node()      // CONSTRUCTOR - No data; default = 0s.
     {
         data = 0;
         next = NULL;
     }
-    Node(int data)
+    Node(int data) // CONSTRUCTOR - With data.
     {
         this->data = data;
         this->next = NULL;
     }
 };
+
+class LinkedList
+{
+    Node *head; // The list has a head node.
+
+public:
+    LinkedList() // CONSTRUCTOR - No head node.
+    {
+        head = NULL;
+    }
+    void insertNode(int);
+    void printList();
+    void deleteNode(int);
+};
+
+void LinkedList::deleteNode(int nodeOffset) // FUNCTION - Delete a node at a specific offset.
+{
+    Node *temp1 = head; // Pointer to the head of the list.
+    Node *temp2 = NULL; // Empty pointer?
+    int ListLen = 0;
+
+    if (head == NULL) // The list is empty when the head is NULL.
+    {
+        cout << "List is Empty!" << endl;
+        return;
+    }
+
+    while (temp1 != NULL) // Traverse the list to find the length?
+    {
+        temp1 = temp1->next;
+        ListLen++;
+    }
+
+    if (ListLen < nodeOffset) // If the offset of the node to delete is greater than the length of the list, the request is out of bounds.
+    {
+        cout << "Index Out of Range!" << endl;
+        return;
+    }
+
+    temp1 = head; // temp1 point to the head again.
+
+    if (nodeOffset == 1) // Delete the first node of the list.
+    {
+        head = head->next;
+        delete temp1;
+        return;
+    }
+
+    while (nodeOffset-- > 1) // Traverse the list until the "offset" node is found in the list.
+    {
+        temp2 = temp1;
+        temp1 = temp1->next;
+    }
+
+    temp2->next = temp1->next; // Redirect the pointer of the nodes to "remove" the node.
+    delete temp1;
+}
+
+void LinkedList::insertNode(int data)
+{
+    Node *newNode = new Node(data);
+
+    if (head == NULL)
+    {
+        head = newNode;
+        return;
+    }
+
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+}
+
+void LinkedList::printList()
+{
+    Node *temp = head;
+    if (head == NULL)
+    {
+        cout << "List Empty" << endl;
+        return;
+    }
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+
+// END ------>>> Linked List Implementation
 
 struct ListNode // 2. Add Two Numbers
 {
