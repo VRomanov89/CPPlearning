@@ -1,3 +1,5 @@
+// g++ main.cpp CPP_FreeCodeCamp.cpp -o main
+
 #include <iostream>
 #include <unordered_map>
 #include "CPP_FreeCodeCamp.h" // Practice of https://www.youtube.com/watch?v=8jLOx1hD3_o&t=2424s
@@ -240,10 +242,12 @@ int mySqrt(int x) // 69. Sqrt(x)
 
 
 
-
-
 int main()
 {
-    Solutions sol;
-    cout << sol.romanToInt("XXX");
+    // Solutions sol;
+    //  cout << sol.romanToInt("XXX");
+    int age{23};
+    cout << age << endl;
+    say_age(&age);
+    cout << age << endl;
 }
