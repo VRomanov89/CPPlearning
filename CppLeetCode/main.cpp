@@ -1,5 +1,7 @@
 #include <iostream>
 #include <unordered_map>
+#include "CPP_FreeCodeCamp.h" // Practice of https://www.youtube.com/watch?v=8jLOx1hD3_o&t=2424s
+
 using namespace std;
 
 // START ------>>> Linked List Implementation
@@ -112,6 +114,29 @@ void LinkedList::printList()
 
 // END ------>>> Linked List Implementation
 
+// START ------>>> Binary Tree Implementation
+
+class BSTNode
+{
+public:
+    BSTNode *left;
+    BSTNode *right;
+    int data;
+
+    BSTNode(int val)
+    {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+void BSTInsert(BSTNode *root, int data)
+{
+}
+
+// END ------>>> Binary Tree Implementation
+
 struct ListNode // 2. Add Two Numbers
 {
     int val;
@@ -212,6 +237,10 @@ int mySqrt(int x) // 69. Sqrt(x)
     }
     return ans;
 }
+
+
+
+
 
 int main()
 {
