@@ -1,8 +1,12 @@
 // g++ main.cpp CPP_FreeCodeCamp.cpp -o main
 
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <unordered_map>
-#include "CPP_FreeCodeCamp.h" // Practice of https://www.youtube.com/watch?v=8jLOx1hD3_o&t=2424s
+#include <algorithm>
+#include "CPP_FreeCodeCamp.h"      // Practice of https://www.youtube.com/watch?v=8jLOx1hD3_o&t=2424s
+#include "CPP_LeetCodeSolutions.h" // Practice of Leet Code
 
 using namespace std;
 
@@ -240,14 +244,68 @@ int mySqrt(int x) // 69. Sqrt(x)
     return ans;
 }
 
+// START ------>>> C++ Project - https://www.youtube.com/watch?v=I_aWPGCaaFA
+bool IsLoggedIn()
+{
+    string username, password, un, pw;
+    cout << "Enter username: ";
+    cin >> username;
+    cout << "Enter password: ";
+    cin >> password;
+    ifstream read(username + ".txt");
+    getline(read, un);
+    getline(read, pw);
 
+    if (un == username && pw == password)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+// END ------>>> C++ Project - https://www.youtube.com/watch?v=I_aWPGCaaFA
 
 int main()
 {
-    // Solutions sol;
-    //  cout << sol.romanToInt("XXX");
-    int age{23};
-    cout << age << endl;
-    say_age(&age);
-    cout << age << endl;
+    // START ------>>> C++ Project - https://www.youtube.com/watch?v=I_aWPGCaaFA
+    int choice;
+    cout << "1: Register\n2: Login\nYourChoice: ";
+    cin >> choice;
+    if (choice == 1)
+    {
+        string username, password;
+        cout << "Select a username: ";
+        cin >> username;
+        cout << "Select a password: ";
+        cin >> password;
+
+        ofstream file;
+        file.open("data\\" + username + ".txt");
+        file << username << endl
+             << password;
+        file.close();
+
+        main();
+    }
+    else if (choice == 2)
+    {
+        bool status = IsLoggedIn();
+
+        if (!status)
+        {
+            cout << "False Login" << endl;
+            system("PAUSE");
+            return 0;
+        }
+        else
+        {
+            cout << "Succesfully logged in!" << endl;
+            system("PAUSE");
+            return 1;
+        }
+    }
+    // END ------>>> C++ Project - https://www.youtube.com/watch?v=I_aWPGCaaFA
 }
