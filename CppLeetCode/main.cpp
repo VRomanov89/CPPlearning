@@ -8,6 +8,7 @@
 #include "CPP_FreeCodeCamp.h"      // Practice of https://www.youtube.com/watch?v=8jLOx1hD3_o&t=2424s
 #include "CPP_LeetCodeSolutions.h" // Practice of Leet Code
 #include "Cylinder.h"
+#include "constants.h"
 
 using namespace std;
 
@@ -272,6 +273,7 @@ bool IsLoggedIn()
 int main()
 {
     // START ------>>> C++ Project - https://www.youtube.com/watch?v=I_aWPGCaaFA
+    /*
     int choice;
     cout << "1: Register\n2: Login\nYourChoice: ";
     cin >> choice;
@@ -308,5 +310,15 @@ int main()
             return 1;
         }
     }
+    */
     // END ------>>> C++ Project - https://www.youtube.com/watch?v=I_aWPGCaaFA
+
+    // START ------>>> C++ Project Cylinder Implementation
+    Cylinder cylinder1(10,10);
+    cylinder1.volume();
+    Cylinder* p_cylinder1 = &cylinder1;
+
+    std::cout << "volume: " << (*p_cylinder1).volume() << std.endl;
+
+    // END ------>>> C++ Project Cylinder Implementation
 }

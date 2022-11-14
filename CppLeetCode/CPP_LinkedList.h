@@ -20,11 +20,11 @@ class LinkedList
 {
 private:
     int size;
+    LLNode *head;
+    LLNode *tail;
 
 public:
     LinkedList(int data);
-    LLNode *head;
-    LLNode *tail;
     void addNode(int data);
 };
 
