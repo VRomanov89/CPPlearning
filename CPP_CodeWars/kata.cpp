@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 std::string even_or_odd(int number)
 {
@@ -25,4 +26,22 @@ unsigned long long get_sum(unsigned int n) // Summation Triangle #1 https://www.
     }
 
     return sum;
+}
+
+/*
+#include <string>
+#include <cctype>
+Problem - Is it a palindrome?
+*/
+bool isPalindrom(const std::string &str)
+{
+    int length = str.length();
+    for (int i = 0; i < length / 2 - 1; i++)
+    {
+        if (tolower(str[i]) != tolower(str[length - i - 1]))
+        {
+            return false;
+        }
+    }
+    return true;
 }
