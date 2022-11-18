@@ -1,5 +1,6 @@
 #include <string>
 #include <cctype>
+using namespace std;
 
 std::string even_or_odd(int number)
 {
@@ -44,4 +45,21 @@ bool isPalindrom(const std::string &str)
         }
     }
     return true;
+}
+
+/*
+#include <string>
+using namespace std;
+Problem - Reversed Strings
+*/
+
+string reverseString(string str)
+{
+    // your Code is Here ... enjoy !!!
+    string rev = "";
+    for (int i = str.length() - 1; i >= 0; i--)
+    {
+        rev += str[i];
+    }
+    return rev;
 }
