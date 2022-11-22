@@ -1,5 +1,6 @@
 #include <string>
 #include <cctype>
+#include <stack>
 using namespace std;
 
 std::string even_or_odd(int number)
@@ -82,4 +83,60 @@ int getCount(const string &inputStr)
         }
     }
     return num_vowels;
+}
+
+/*
+#include <string>
+Problem - dif 7 / Disemvowel Trolls
+*/
+
+std::string disemvowel(const std::string &str)
+{
+    std::string string2;
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] == 'a' || str[i] == 'A' || str[i] == 'i' || str[i] == 'I' || str[i] == 'e' || str[i] == 'E' || str[i] == 'o' || str[i] == 'O' || str[i] == 'u' || str[i] == 'U')
+        {
+        }
+        else
+        {
+            string2 += str[i];
+        }
+    }
+    return string2;
+    // return
+}
+
+/*
+#include <stack>
+Problem - dif 7 / Square Every Digit
+*/
+
+int square_digits(int num)
+{
+    std::stack<int> nums;
+    int hold = num;
+    int number = 0;
+    int result = 0;
+    while (hold > 0)
+    {
+        nums.push(hold % 10);
+        hold = hold / 10;
+    }
+    while (!nums.empty())
+    {
+        number = nums.top();
+        nums.pop();
+        number = number * number;
+        if (number > 10)
+        {
+            result = result * 100;
+        }
+        else
+        {
+            result = result * 10;
+        }
+        result = result + number;
+    }
+    return result;
 }
