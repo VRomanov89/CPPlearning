@@ -140,3 +140,83 @@ int square_digits(int num)
     }
     return result;
 }
+
+/*
+#include <string>
+Problem - dif 7 / Highest and Lowest
+*/
+
+std::string highAndLow(const std::string &numbers)
+{
+    // your code here
+    std::string temp;
+
+    int num = 0;
+    int reset = 1;
+    int pos = 0;
+    while (numbers[pos] != ' ')
+    {
+        pos++;
+    }
+    if (numbers[0] == '-')
+    {
+        num = -1 * std::stoi(numbers.substr(1, pos - 1));
+    }
+    else
+    {
+        num = std::stoi(numbers.substr(0, pos));
+    }
+    int min = num;
+    int max = num;
+    for (int i = 0; i < numbers.length(); i++)
+    {
+        if (numbers[i] == ' ')
+        {
+            if (reset != i)
+            {
+                if (numbers[reset + 1] == '-')
+                {
+                    num = -1 * std::stoi(numbers.substr(reset + 2, i - reset));
+                }
+                else
+                {
+                    num = std::stoi(numbers.substr(reset + 1, i - reset));
+                }
+                reset = i;
+            }
+        }
+        if (num > max)
+        {
+            max = num;
+        }
+        if (num < min)
+        {
+            min = num;
+        }
+    }
+    pos = numbers.length() - 1;
+    while (numbers[pos] != ' ')
+    {
+        pos--;
+    }
+    if (numbers[pos + 1] == '-')
+    {
+        num = -1 * std::stoi(numbers.substr(pos + 1, numbers.length() - 1));
+    }
+    else
+    {
+        num = std::stoi(numbers.substr(pos + 1, numbers.length() - 1));
+    }
+    if (num > max)
+    {
+        max = num;
+    }
+    if (num < min)
+    {
+        min = num;
+    }
+
+    temp = std::to_string(max) + ' ' + std::to_string(min);
+
+    return temp;
+}
