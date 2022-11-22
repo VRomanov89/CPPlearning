@@ -220,3 +220,20 @@ std::string highAndLow(const std::string &numbers)
 
     return temp;
 }
+
+/*
+Problem - dif 7 / Get the Middle Character
+*/
+
+std::string get_middle(std::string input)
+{
+    // return the middle character(s)
+    if (input.length() % 2 == 0)
+    {
+        return input.substr(input.length() / 2 - 1, 2);
+    }
+    else
+    {
+        return input.substr(input.length() / 2, 1);
+    }
+}
