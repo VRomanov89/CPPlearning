@@ -237,3 +237,26 @@ std::string get_middle(std::string input)
         return input.substr(input.length() / 2, 1);
     }
 }
+
+/*
+#include <vector>
+Problem - dif 7 / Find Count of Most Frequent Item in an Array
+*/
+
+unsigned int most_frequent_item_count(const std::vector<int>& collection) {
+  //your code here
+  int sumMax = 0;
+  int sum = 0;
+  for (int i = 0; i < collection.size(); i++) {
+    for (int j = i; j < collection.size(); j++) {
+      if (collection[i] == collection[j]) {
+        sum++;
+      }
+    }
+    if (sum > sumMax) {
+      sumMax = sum;
+    }
+    sum = 0;
+  }
+  return sumMax;
+}
