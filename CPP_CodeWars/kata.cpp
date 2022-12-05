@@ -243,20 +243,54 @@ std::string get_middle(std::string input)
 Problem - dif 7 / Find Count of Most Frequent Item in an Array
 */
 
-unsigned int most_frequent_item_count(const std::vector<int>& collection) {
-  //your code here
-  int sumMax = 0;
-  int sum = 0;
-  for (int i = 0; i < collection.size(); i++) {
-    for (int j = i; j < collection.size(); j++) {
-      if (collection[i] == collection[j]) {
-        sum++;
-      }
+unsigned int most_frequent_item_count(const std::vector<int> &collection)
+{
+    // your code here
+    int sumMax = 0;
+    int sum = 0;
+    for (int i = 0; i < collection.size(); i++)
+    {
+        for (int j = i; j < collection.size(); j++)
+        {
+            if (collection[i] == collection[j])
+            {
+                sum++;
+            }
+        }
+        if (sum > sumMax)
+        {
+            sumMax = sum;
+        }
+        sum = 0;
     }
-    if (sum > sumMax) {
-      sumMax = sum;
+    return sumMax;
+}
+
+/*
+Problem - dif 7 / Exes and Ohs
+*/
+
+bool XO(const std::string &str)
+{
+    // your code here
+    int x = 0, o = 0;
+    for (unsigned long i = 0; i < str.size(); i++)
+    {
+        if (str[i] == 'x' || str[i] == 'X')
+        {
+            x++;
+        }
+        else if (str[i] == 'o' || str[i] == 'O')
+        {
+            o++;
+        }
     }
-    sum = 0;
-  }
-  return sumMax;
+    if (x == o)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
