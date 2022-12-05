@@ -294,3 +294,30 @@ bool XO(const std::string &str)
         return false;
     }
 }
+
+/*
+Problem - dif 7 / Beginner Series #3 Sum of Numbers
+*/
+
+int get_sum(int a, int b)
+{
+    int sum = 0;
+    int small, big;
+    if (a > b)
+    {
+        big = a;
+        small = b;
+    }
+    else
+    {
+        big = b;
+        small = a;
+    }
+    for (int i = small; i <= big; i++)
+    {
+        std::cout << i;
+        sum += i;
+    }
+    return sum;
+    // Good luck!
+}
