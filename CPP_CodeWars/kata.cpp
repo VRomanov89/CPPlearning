@@ -321,3 +321,23 @@ int get_sum(int a, int b)
     return sum;
     // Good luck!
 }
+
+/*
+Problem - dif 7 / Is this a triangle?
+*/
+
+namespace Triangle
+{
+    bool isTriangle(int a, int b, int c)
+    {
+        long aa = a, bb = b, cc = c;
+        if (aa + bb > cc && aa + cc > bb && bb + cc > aa)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
